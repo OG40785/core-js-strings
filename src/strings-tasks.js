@@ -403,8 +403,20 @@ function reverseWords(str) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  let result = '';
+
+  for (let i = 0; i < str.length; i += 1) {
+    const simbol = str[i];
+
+    if (simbol === simbol.toLowerCase()) {
+      result += simbol.toUpperCase();
+    } else {
+      result += simbol.toLowerCase();
+    }
+  }
+
+  return result;
 }
 
 /**
@@ -488,8 +500,20 @@ function extractEmails(str) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  const alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const rot13 = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  let result = '';
+  for (let index = 0; index < str.length; index += 1) {
+    const element = str[index];
+    if (!alfabeto.includes(element)) {
+      result += element;
+    } else {
+      const position = alfabeto.indexOf(element);
+      result += rot13[position];
+    }
+  }
+  return result;
 }
 
 /**
